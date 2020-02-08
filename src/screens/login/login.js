@@ -2,16 +2,18 @@ import React, {Component} from "react";
 import "./Login.css";
 import Header from '../../common/Header/Header'
 import {
-    Card,
-    Typography,
     Button,
+    Card,
     CardContent,
-    InputLabel, FormControl, Input, FormHelperText
+    FormControl,
+    FormHelperText,
+    Input,
+    InputLabel,
+    Typography
 } from '@material-ui/core';
 
-
 class Login extends Component{
-    /*Constructor to set state variables*/
+    /**Constructor to set state variables*/
     constructor() {
         super();
         this.state = {
@@ -23,18 +25,19 @@ class Login extends Component{
         }
     }
 
-    /*read username and password fields*/
+    /**read username and password fields*/
     usernameChangeHandler = (e) => {
         this.setState({ username: e.target.value });
-    }
+    };
 
     passwordChangeHandler = (e) => {
         this.setState({ password: e.target.value });
-    }
+    };
 
     /**
      * Login click Handler
-     * If valid username and password is provided, then user access token is added to session Storage
+     * If valid username and password is provided,
+     * then user access token is added to session Storage
      */
     loginClickHandler = () => {
         // Default username and password
@@ -43,23 +46,37 @@ class Login extends Component{
         // Upgrad user access token
         const accessToken = "8661035776.d0fcd39.39f63ab2f88d4f9c92b0862729ee2784";
 
-        // Validate for empty field input data, show required red message under the input fields
-        this.state.username === "" ? this.setState({ usernameRequired: "dispBlock" }) : this.setState(
-            { usernameRequired: "dispNone",  incorrectUsernamePassword: "dispNone"   });
-        this.state.password === "" ? this.setState({ passwordRequired: "dispBlock" }) : this.setState(
-            { passwordRequired: "dispNone",  incorrectUsernamePassword: "dispNone"  });
+        // Validate for empty field input data, show required red message
+        // under the input fields
+        this.state.username === "" ?
+            this.setState({usernameRequired: "dispBlock"}) :
+            this.setState({
+                usernameRequired: "dispNone",
+                incorrectUsernamePassword: "dispNone"
+            });
+        this.state.password === "" ?
+            this.setState({passwordRequired: "dispBlock"}) :
+            this.setState({
+                passwordRequired: "dispNone",
+                incorrectUsernamePassword: "dispNone"
+            });
 
-        // If any of the field is not empty and not valid, then incorrect message should be thrown
-        if ((this.state.username !== '' && this.state.password !== '')  && (this.state.username !== validUser || this.state.password !== validPassword)) {
+        // If any of the field is not empty and not valid,
+        // then incorrect message should be thrown
+        if ((this.state.username !== '' && this.state.password !== '')
+            && (this.state.username !== validUser
+                || this.state.password !== validPassword)) {
             this.setState({ incorrectUsernamePassword: "dispBlock" });
         } else if (this.state.username==='' || this.state.password===''){
             sessionStorage.removeItem("access-token");
-        } else if (this.state.username === validUser && this.state.password === validPassword){
+        } else if (this.state.username === validUser
+            && this.state.password === validPassword) {
             // Set access token in session storage and route to Home page
             this.setState({ incorrectUsernamePassword: "dispNone" });
             sessionStorage.setItem("access-token", accessToken);
+            this.props.history.push("/home");
         }
-    }
+    };
 
     render(){
         return(

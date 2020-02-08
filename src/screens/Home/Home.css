@@ -1,0 +1,40 @@
+
+.line-separator {
+  width: 100%;
+  margin: 5px 0;
+}
+
+.image-hash-tag {
+  margin-top: 0;
+  font-weight: 500;
+  color: #73B8FD;
+}
+
+.likes-count {
+  display: inline;
+  padding-left: 10px;
+}
+
+.comments-section {
+  margin-top: 10px;
+}
+
+.add-comments-section {
+  width: 95%;
+  margin-top: 10%;
+}
+
+.comment-username {
+  display: inline;
+  font-weight: bold;
+}
+
+.comment-text {
+  display: inline;
+  color: black;
+}
+
+.comments-input {
+  width: 100%;
+  margin-right: 10px;
+}
