@@ -1,0 +1,17 @@
+.loginCard {
+  width: 30%;
+  display: inline-block;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+.loginCardContent{
+  display: flex;
+  flex-direction: column;
+}
+#loginButton{
+  height: 50px;
+  width: 100px;
+}
