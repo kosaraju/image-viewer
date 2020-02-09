@@ -73,10 +73,8 @@ class Home extends Component {
         if (this.readyState === 4) {
           let responseData = JSON.parse(this.response).data;
           responseData.forEach(image => {
-            console.log(image.created_time);
             image.created_time = thisComponent.parseTimestamp(
                 image.created_time);
-            console.log(image.created_time);
 
             image.caption.text = image.caption.text.split('\n');
             image.userComments = [];
@@ -165,7 +163,6 @@ class Home extends Component {
 
   render() {
     const {classes} = this.props;
-    console.log('in home render');
     return (
         <div>
           <Header pageId="home"
