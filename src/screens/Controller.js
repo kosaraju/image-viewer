@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Login from './Login/Login';
+import Login from './login/login';
 import Home from './Home/Home';
 import Profile from './Profile/Profile';
+
 
 /** Controller Component for routing*/
 class Controller extends Component {
