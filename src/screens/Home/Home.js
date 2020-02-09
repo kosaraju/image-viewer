@@ -98,12 +98,11 @@ class Home extends Component {
 
   parseTimestamp = (time) => {
     let dateTime = new Date(time * 1000);
-    let formattedDate = this.formatNums(dateTime.getDate()) + '/' +
+    return this.formatNums(dateTime.getDate()) + '/' +
         this.formatNums(dateTime.getMonth() + 1) + '/' +
         dateTime.getFullYear() + ' ' + dateTime.getHours() + ':'
         + dateTime.getMinutes() + ':' +
         dateTime.getSeconds();
-    return formattedDate;
   };
 
   formatNums = (num) => {
@@ -136,7 +135,6 @@ class Home extends Component {
       image.likes.count++;
     }
     image.user_has_liked = !image.user_has_liked;
-    // Set the state to update the content on page
     this.setState({...this.state});
   };
 

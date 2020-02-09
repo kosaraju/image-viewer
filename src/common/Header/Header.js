@@ -45,10 +45,9 @@ class Header extends Component {
     return (
         <div className='app-header'>
           {
-            this.state.isUserLoggedIn ? <Redirect to='/home'/> : <Redirect
-                to='/'/>
+            !this.state.isUserLoggedIn && <Redirect to='/'/>
           }
-          <Link to="/" className="logo">Image Viewer</Link>
+          <Link to="/home" className="logo">Image Viewer</Link>
           {this.state.isUserLoggedIn &&
           <div className="header-right-content">
             {this.props.pageId === 'home' &&
@@ -71,10 +70,14 @@ class Header extends Component {
                 open={this.state.showMenu}
                 onClose={this.profilePictureClickHandler}
                 className="profile-options-menu">
-              <MenuItem onClick={this.myAccountClickHandler}>
-                <span className="menu-option">My Account</span>
-              </MenuItem>
-              <hr/>
+              {this.props.pageId === 'home' &&
+              <div>
+                <MenuItem onClick={this.myAccountClickHandler}>
+                  <span className="menu-option">My Account</span>
+                </MenuItem>
+                <hr/>
+              </div>
+              }
               <MenuItem onClick={this.logoutClickHandler}>
                 <span className="menu-option">Logout</span>
               </MenuItem>
