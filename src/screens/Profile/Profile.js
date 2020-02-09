@@ -251,7 +251,7 @@ class Profile extends Component {
               </div>
             </div>
             <div className="images-grid-list">
-              <GridList cellHeight={350} cols={3} className="grid-list-main">
+              <GridList cellHeight={300} cols={3} className="grid-list-main">
                 {this.state.images.map(image => (
                     <GridListTile key={image.id}
                                   onClick={() => this.gridImageClickHandler(
